@@ -1,0 +1,12 @@
+.{
+    .name = "xed",
+    .version = "0.0.0",
+    .paths = .{
+        "build.zig",
+        "build.gen.zig",
+        "build.zig.zon",
+        "c",
+        "LICENSE",
+        "README.md",
+    },
+}

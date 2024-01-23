@@ -1,0 +1,7 @@
+build.gen.zig linguist-generated
+
+c/datafiles/** linguist-vendored
+c/include/** linguist-vendored
+c/src/** linguist-vendored
+
+c/obj/** linguist-generated
