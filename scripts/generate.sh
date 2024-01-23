@@ -13,16 +13,20 @@ get() {
     fi
 }
 
+stub() {
+    echo "flock $1 sh -c '"'(printf "%s " "$@"; echo)'" >>$1' --"
+}
 run_mbuild() {
     get xed
     get mbuild
 
     mkdir -p tmp
     : >tmp/cc.log
+    : >tmp/ar.log
 
     cd xed
     set +e # We expect the build to fail, because our `ar` stub doesn't actually produce any artifacts
-    ./mfile.py --cc='flock ../tmp/cc.log sh -c '\''(printf "%s " "$@"; echo) >> ../tmp/cc.log'\' --ar='true'
+    ./mfile.py --cc="$(stub ../tmp/cc.log)" --ar="$(stub ../tmp/ar.log)"
     set -e
     cd -
 }
