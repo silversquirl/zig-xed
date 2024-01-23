@@ -18,7 +18,7 @@ run_mbuild() {
     get mbuild
 
     mkdir -p tmp
-    >tmp/cc.log
+    : >tmp/cc.log
 
     cd xed
     set +e # We expect the build to fail, because our `ar` stub doesn't actually produce any artifacts
@@ -31,7 +31,6 @@ collect_sources() {
     rm -r c
     mkdir c
     cp -r xed/src c/src
-    cp -r xed/obj c/obj
     cp -r xed/include c/include
 
     for f in xed/datafiles/*/*.c; do
@@ -39,6 +38,13 @@ collect_sources() {
         mkdir -p "${d%/*}"
         cp "$f" "$d"
     done
+
+    mkdir c/obj
+    cp -r xed/obj/*.c c/obj/
+    cp -r xed/obj/include-private c/obj/
+
+    mkdir c/obj/include-public
+    cp xed/obj/*.h c/obj/include-public/
 }
 
 gen_build() {
@@ -51,9 +57,9 @@ gen_build() {
                 continue
             fi
             case "$x" in
-                -o) skip=1;;
-                -*) args+=("$x");;
-                *) c_files+=("$x");;
+            -o) skip=1 ;;
+            -*) args+=("$x") ;;
+            *) c_files+=("$x") ;;
             esac
         done
     done <./tmp/cc.log

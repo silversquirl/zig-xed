@@ -15,8 +15,11 @@ pub fn build(b: *std.Build) !void {
     lib.addIncludePath(.{ .path = "c/include/private" });
     lib.addIncludePath(.{ .path = "c/include/public" });
     lib.addIncludePath(.{ .path = "c/include/public/xed" });
-    lib.addIncludePath(.{ .path = "c/obj" });
+    lib.addIncludePath(.{ .path = "c/obj/include-public" });
     lib.addIncludePath(.{ .path = "c/obj/include-private" });
+
+    lib.installHeadersDirectory("c/include/public/xed", "xed");
+    lib.installHeadersDirectory("c/obj/include-public", "xed");
 
     gen.addSources(lib);
 
