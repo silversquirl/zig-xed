@@ -5,10 +5,12 @@ cd "${0%/*}/.."
 
 get() {
     if [[ -e "$1" ]]; then
+        echo "Updating $1..."
         git -C "$1" clean -fxd
         git -C "$1" restore .
         git -C "$1" pull
     else
+        echo "Fetching $1..."
         git clone https://github.com/intelxed/"$1".git
     fi
 }
@@ -20,7 +22,8 @@ run_mbuild() {
     get xed
     get mbuild
 
-    mkdir -p tmp
+    rm -rf tmp
+    mkdir tmp
     : >tmp/cc.log
     : >tmp/ar.log
 

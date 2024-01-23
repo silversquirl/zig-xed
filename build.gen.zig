@@ -120,6 +120,7 @@ pub fn addSources(lib: *std.Build.Step.Compile) void {
             "c/src/dec/xed3-static-decode.c",
         },
         .flags = &.{
+            "-fno-sanitize=undefined",
             "-std=c99",
             "-pedantic",
             "-Wall",

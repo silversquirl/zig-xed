@@ -26,28 +26,58 @@ END_LEGAL */
 #include "xed-ild-private.h"
 #include "xed-ild-eosz.h"
 #include "xed-operand-accessors.h"
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_EOSZ_getter(const xed_decoded_inst_t* x);
+
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_CR_WIDTH_EOSZ_getter(const xed_decoded_inst_t* x);
+
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IGNORE66_EOSZ_getter(const xed_decoded_inst_t* x);
+
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_DF64_EOSZ_getter(const xed_decoded_inst_t* x);
 
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IMMUNE_REXW_EOSZ_getter(const xed_decoded_inst_t* x);
-
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_FORCE64_EOSZ_getter(const xed_decoded_inst_t* x);
 
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_CR_WIDTH_EOSZ_getter(const xed_decoded_inst_t* x);
 
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_DF64_IMMUNE66_LOOP64_EOSZ_getter(const xed_decoded_inst_t* x);
 
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IMMUNE66_EOSZ_getter(const xed_decoded_inst_t* x);
-
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IGNORE66_EOSZ_getter(const xed_decoded_inst_t* x);
-
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_DF64_FORCE64_EOSZ_getter(const xed_decoded_inst_t* x);
 
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_CR_WIDTH_EOSZ_getter(const xed_decoded_inst_t* x);
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IMMUNE66_EOSZ_getter(const xed_decoded_inst_t* x);
+
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_FORCE64_EOSZ_getter(const xed_decoded_inst_t* x);
 
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_EOSZ_getter(const xed_decoded_inst_t* x);
 
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_EOSZ_getter(const xed_decoded_inst_t* x);
-
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_EOSZ_getter(const xed_decoded_inst_t* x)
+{
+xed_bits_t _mode;
+xed_bits_t _osz;
+xed_bits_t _rexw;
+_mode = (xed_bits_t)xed3_operand_get_mode(x);
+_osz = (xed_bits_t)xed3_operand_get_osz(x);
+_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
+return xed_lookup_function_OSZ_NONTERM_REFINING66_EOSZ(_mode, _osz, _rexw);
+}
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_CR_WIDTH_EOSZ_getter(const xed_decoded_inst_t* x)
+{
+xed_bits_t _mode;
+xed_bits_t _osz;
+xed_bits_t _rexw;
+_mode = (xed_bits_t)xed3_operand_get_mode(x);
+_osz = (xed_bits_t)xed3_operand_get_osz(x);
+_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
+return xed_lookup_function_OSZ_NONTERM_REFINING66_CR_WIDTH_EOSZ(_mode, _osz, _rexw);
+}
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IGNORE66_EOSZ_getter(const xed_decoded_inst_t* x)
+{
+xed_bits_t _mode;
+xed_bits_t _osz;
+xed_bits_t _rexw;
+_mode = (xed_bits_t)xed3_operand_get_mode(x);
+_osz = (xed_bits_t)xed3_operand_get_osz(x);
+_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
+return xed_lookup_function_OSZ_NONTERM_IGNORE66_EOSZ(_mode, _osz, _rexw);
+}
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_DF64_EOSZ_getter(const xed_decoded_inst_t* x)
 {
 xed_bits_t _mode;
@@ -67,16 +97,6 @@ _mode = (xed_bits_t)xed3_operand_get_mode(x);
 _osz = (xed_bits_t)xed3_operand_get_osz(x);
 _rexw = (xed_bits_t)xed3_operand_get_rexw(x);
 return xed_lookup_function_OSZ_NONTERM_IMMUNE_REXW_EOSZ(_mode, _osz, _rexw);
-}
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_FORCE64_EOSZ_getter(const xed_decoded_inst_t* x)
-{
-xed_bits_t _mode;
-xed_bits_t _osz;
-xed_bits_t _rexw;
-_mode = (xed_bits_t)xed3_operand_get_mode(x);
-_osz = (xed_bits_t)xed3_operand_get_osz(x);
-_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
-return xed_lookup_function_OSZ_NONTERM_FORCE64_EOSZ(_mode, _osz, _rexw);
 }
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_CR_WIDTH_EOSZ_getter(const xed_decoded_inst_t* x)
 {
@@ -98,26 +118,6 @@ _osz = (xed_bits_t)xed3_operand_get_osz(x);
 _rexw = (xed_bits_t)xed3_operand_get_rexw(x);
 return xed_lookup_function_OSZ_NONTERM_DF64_IMMUNE66_LOOP64_EOSZ(_mode, _osz, _rexw);
 }
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IMMUNE66_EOSZ_getter(const xed_decoded_inst_t* x)
-{
-xed_bits_t _mode;
-xed_bits_t _osz;
-xed_bits_t _rexw;
-_mode = (xed_bits_t)xed3_operand_get_mode(x);
-_osz = (xed_bits_t)xed3_operand_get_osz(x);
-_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
-return xed_lookup_function_OSZ_NONTERM_IMMUNE66_EOSZ(_mode, _osz, _rexw);
-}
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IGNORE66_EOSZ_getter(const xed_decoded_inst_t* x)
-{
-xed_bits_t _mode;
-xed_bits_t _osz;
-xed_bits_t _rexw;
-_mode = (xed_bits_t)xed3_operand_get_mode(x);
-_osz = (xed_bits_t)xed3_operand_get_osz(x);
-_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
-return xed_lookup_function_OSZ_NONTERM_IGNORE66_EOSZ(_mode, _osz, _rexw);
-}
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_DF64_FORCE64_EOSZ_getter(const xed_decoded_inst_t* x)
 {
 xed_bits_t _mode;
@@ -128,7 +128,7 @@ _osz = (xed_bits_t)xed3_operand_get_osz(x);
 _rexw = (xed_bits_t)xed3_operand_get_rexw(x);
 return xed_lookup_function_OSZ_NONTERM_DF64_FORCE64_EOSZ(_mode, _osz, _rexw);
 }
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_CR_WIDTH_EOSZ_getter(const xed_decoded_inst_t* x)
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_IMMUNE66_EOSZ_getter(const xed_decoded_inst_t* x)
 {
 xed_bits_t _mode;
 xed_bits_t _osz;
@@ -136,7 +136,17 @@ xed_bits_t _rexw;
 _mode = (xed_bits_t)xed3_operand_get_mode(x);
 _osz = (xed_bits_t)xed3_operand_get_osz(x);
 _rexw = (xed_bits_t)xed3_operand_get_rexw(x);
-return xed_lookup_function_OSZ_NONTERM_REFINING66_CR_WIDTH_EOSZ(_mode, _osz, _rexw);
+return xed_lookup_function_OSZ_NONTERM_IMMUNE66_EOSZ(_mode, _osz, _rexw);
+}
+static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_FORCE64_EOSZ_getter(const xed_decoded_inst_t* x)
+{
+xed_bits_t _mode;
+xed_bits_t _osz;
+xed_bits_t _rexw;
+_mode = (xed_bits_t)xed3_operand_get_mode(x);
+_osz = (xed_bits_t)xed3_operand_get_osz(x);
+_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
+return xed_lookup_function_OSZ_NONTERM_FORCE64_EOSZ(_mode, _osz, _rexw);
 }
 static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_EOSZ_getter(const xed_decoded_inst_t* x)
 {
@@ -147,15 +157,5 @@ _mode = (xed_bits_t)xed3_operand_get_mode(x);
 _osz = (xed_bits_t)xed3_operand_get_osz(x);
 _rexw = (xed_bits_t)xed3_operand_get_rexw(x);
 return xed_lookup_function_OSZ_NONTERM_EOSZ(_mode, _osz, _rexw);
-}
-static XED_INLINE xed_bits_t xed_lookup_function_OSZ_NONTERM_REFINING66_EOSZ_getter(const xed_decoded_inst_t* x)
-{
-xed_bits_t _mode;
-xed_bits_t _osz;
-xed_bits_t _rexw;
-_mode = (xed_bits_t)xed3_operand_get_mode(x);
-_osz = (xed_bits_t)xed3_operand_get_osz(x);
-_rexw = (xed_bits_t)xed3_operand_get_rexw(x);
-return xed_lookup_function_OSZ_NONTERM_REFINING66_EOSZ(_mode, _osz, _rexw);
 }
 #endif

@@ -9,6 +9,7 @@ pub fn main() !void {
     const xed_prefix = try std.fs.cwd().realpathAlloc(allocator, "xed/");
 
     var flags = std.StringArrayHashMap(void).init(allocator);
+    try flags.put("-fno-sanitize=undefined", {}); // I don't like this >:c
     var files = std.ArrayList([]const u8).init(allocator);
 
     {
